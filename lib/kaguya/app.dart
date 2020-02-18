@@ -1,4 +1,5 @@
 import 'package:double_back_to_close_app/double_back_to_close_app.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kaguya/kaguya/pages/downloads.dart';
 import 'package:kaguya/kaguya/pages/explore.dart';
@@ -16,15 +17,19 @@ class _KaguyaAppState extends State<KaguyaApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Kaguya",
-      theme: ThemeData(
-        brightness: Brightness.dark,
-        primaryColor: Colors.pink,
-        accentColor: Colors.pinkAccent,
-      ),
-      debugShowCheckedModeBanner: false,
-      home: KaguyaHome(),
-    );
+        title: "Kaguya",
+        theme: ThemeData(
+          brightness: Brightness.light,
+          primaryColor: Colors.pink,
+          accentColor: Colors.pinkAccent,
+        ),
+        darkTheme: ThemeData(
+          brightness: Brightness.dark,
+          primaryColor: Colors.pink,
+          accentColor: Colors.pinkAccent,
+        ),
+        debugShowCheckedModeBanner: false,
+        home: KaguyaHome());
   }
 }
 
@@ -56,7 +61,7 @@ class KaguyaHomeState extends State<KaguyaHome> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
-            onPressed: () => true, // Show filter menu
+            onPressed: () => true, // TODO: Show filter menu
           )
         ],
       ),
@@ -75,6 +80,8 @@ class KaguyaHomeState extends State<KaguyaHome> {
             this._index = _index;
           });
         },
+        selectedItemColor: Theme.of(context).primaryColor,
+        unselectedItemColor: Theme.of(context).accentColor,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             title: Text('Explore'),

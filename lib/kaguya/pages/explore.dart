@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kaguya/kaguya/api/manga_source.dart';
 import 'package:kaguya/kaguya/models/manga.dart';
 import 'package:kaguya/kaguya/views/marquee.dart';
 import "package:transparent_image/transparent_image.dart";
@@ -11,6 +12,7 @@ class ExplorePage extends StatefulWidget {
 }
 
 class _ExplorePageState extends State<ExplorePage> {
+  MangaSource _mangaSource;
   List<Manga> _manga;
 
   final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
@@ -23,14 +25,22 @@ class _ExplorePageState extends State<ExplorePage> {
     _manga = <Manga>[
       // test manga
       Manga(
-          "Komi-san wa Komyushou Desu.",
-          """Komi-san is the beautiful and admirable girl that no one can take their eyes off of. Almost the whole school sees her as the cold beauty that's out of their league, but Tadano Hitohito knows the truth: she's just really bad at communicating with others.
-Komi-san, who wishes to fix this bad habit of hers, tries to improve herself with the help of Tadano-kun.""",
-          "ODA Tomohito",
-          "https://upload.wikimedia.org/wikipedia/en/d/d1/Cover_Art_Komi-san_wa%2C_Komyushou_desu_Vol_1.jpg",
-          <String>["Comedy", "Romance", "School Life", "Slice of Life"],
-          "https://www.mangaeden.com/en/en-manga/komi-san-wa-komyushou-desu/",
-          MangaStatus.Ongoing),
+          "Boku Girl",
+          """Mizuki gets confessed to by a boy in front of a special Mirror. Legend has it, that if you confess to someone you like in front of that mirror your wish comes true. There is a slight Problem in this Equation: Mizuki is just a very feminine looking boy. Also it seems that he caught the Attention of the Norse Trickster God Loki while glancing into the Mirror. Loki decides out of boredom to mess with Mizuki and turns him into a real Girl. """,
+          "SUGITO Akira",
+          "https://cdn.mangaeden.com/mangasimg/200x/c7/c70b6250283e73f401a4185f1333b4e65725d0f487ec02668fcb280b.jpg",
+          <String>[
+            "Supernatural",
+            "Comedy",
+            "Romance",
+            "School Life",
+            "Seinen",
+            "Mature",
+            "Ecchi",
+            "Gender Bender"
+          ],
+          "https://www.mangaeden.com/en/en-manga/boku-girl/",
+          MangaStatus.Completed),
     ];
 
     WidgetsBinding.instance
@@ -38,10 +48,9 @@ Komi-san, who wishes to fix this bad habit of hers, tries to improve herself wit
   }
 
   Future<Null> _refresh() {
-//    return getManga().then((_manga) {
-//      setState(() => this._manga = _manga);
-//    });
-    return null;
+    return _mangaSource.getManga().then((_manga) {
+      setState(() => this._manga = _manga);
+    });
   }
 
   @override

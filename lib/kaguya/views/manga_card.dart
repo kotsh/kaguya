@@ -23,11 +23,11 @@ class _MangaCardWidgetState extends State<MangaCardWidget> {
   Widget build(BuildContext context) {
     return Card(
       child: InkWell(
-        onTap: () {},
+        onTap: () {}, // TODO: open manga reader
         child: Column(
           children: <Widget>[
             Expanded(
-//                        flex: 0,
+              flex: 0,
               child: FadeInImage(
                 placeholder: MemoryImage(kTransparentImage),
                 image: CachedNetworkImageProvider(

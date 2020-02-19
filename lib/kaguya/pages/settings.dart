@@ -13,7 +13,7 @@ class SettingsPage extends StatelessWidget {
             size: 160.0,
           ),
           Text(
-            "Fourth Tab",
+            "Settings",
           )
         ],
       ),

@@ -13,7 +13,7 @@ class DownloadsPage extends StatelessWidget {
             size: 160.0,
           ),
           Text(
-            "Third Tab",
+            "Downloads",
           )
         ],
       ),

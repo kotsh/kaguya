@@ -1,9 +1,9 @@
 import 'package:kaguya/kaguya/models/manga.dart';
 
 abstract class MangaSource {
-  Future<List<Manga>> getManga() {
+  Future<List<Manga>> getManga() async {
     Future<List<Manga>> future = new Future(() => <Manga>[
-          // test manga
+          // TODO: make actual api call
           Manga(
               "Boku Girl",
               """Mizuki gets confessed to by a boy in front of a special Mirror. Legend has it, that if you confess to someone you like in front of that mirror your wish comes true. There is a slight Problem in this Equation: Mizuki is just a very feminine looking boy. Also it seems that he caught the Attention of the Norse Trickster God Loki while glancing into the Mirror. Loki decides out of boredom to mess with Mizuki and turns him into a real Girl. """,

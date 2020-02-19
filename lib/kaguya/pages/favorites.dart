@@ -13,7 +13,7 @@ class FavoritesPage extends StatelessWidget {
             size: 160.0,
           ),
           Text(
-            "Second Tab",
+            "Favorites",
           )
         ],
       ),
